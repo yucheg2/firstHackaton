@@ -12,13 +12,11 @@ let arrayModules = [];
 
 
 
-const firstModule = new BackgroundModule('changeBack','Изменить задний фон');
 const secondModule = new BackgroundModule('changeColor','Изменить цвет');
 const thirdModule = new GameDrumModule('GameDrum', 'Поиграть на барабанах');
 const reactionModule = new ReactionGame ('reactionGame', 'Игра на реакцию')
-// arrayModules.push(firstModule)
-arrayModules.push(reactionModule)
 arrayModules.push(secondModule)
+arrayModules.push(reactionModule)
 arrayModules.push(thirdModule)
 
 
@@ -32,7 +30,7 @@ document.addEventListener('click', (event) => {
 
     switch (target.dataset.type) {
         case 'changeColor':
-        firstModule.trigger()
+        secondModule.trigger()
         contextMenu.close(); break;
         case 'reactionGame':
         reactionModule.trigger()
