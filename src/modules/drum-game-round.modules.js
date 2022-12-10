@@ -25,12 +25,12 @@ export class Round {
 
         const task = document.createElement('div')
         task.classList = 'task'
-        task.textContent = `${this.task}`
+        task.textContent = `Сыграй: ${this.task}`
         div.append(task)
 
-        const help = document.createElement('div')
+        const help = document.createElement('img')
         help.classList = 'help'
-        help.textContent = `hi-hat = q`
+        help.src = '../../img/drum_game_info.jpg'
         div.append(help)
 
         const containerDrum = document.createElement('div')
@@ -86,55 +86,101 @@ export class Round {
     }
     // метод для генерирования звуков при нажатии на клавиши
     game () {
-        const body = document.querySelector('body')
-        body.addEventListener('keydown', event => {
-            const { target } = event;
-            let key = event.key;
-            let drum = document.querySelector('[data-d='+key+']');
-            let audio = document.querySelector('[data-a='+key+']');
-            drum.classList.add('hit');
-            setTimeout(()=>{
-             drum.classList.remove('hit');
-            },100);
-           audio.currentTime = 0;
-           audio.play();
-           console.log(event);
+            const body = document.querySelector('body')
+            document.body.style.background = 'rgb(117, 118, 74)';
 
-           let array = this.array
-           array.push(event.key)
-
-           let count = 4;
-        //    if (array[0] === 'v') {
-        //     count-1
-        //     if (array[1] === 'k') {
-        //         count-1
-        //         if (array[2] === 'v') {
-        //             count-1
-        //             if (array[3] === 's') {
-        //                 count-1
-        //                 setTimeout(alert('Win'), 4000)
-        //             }
-        //         }
-        //     } 
-        //    }  else {
-        //         console.log('Проиграл');
-        //    }
-
-        if (array.join('').includes() == 'vkvs') {
-            alert ('win')
-        } 
-
-
-           console.log(array.join(''));
-
-        //    if (array.includes('vkvs')) {
-        //     alert('YEEE')
-        //    }
-
-          });
-
-    }
-    checkResult() {
-        
+            body.addEventListener('keydown', event => {
+                const { target } = event;
+                let key = event.key;
+                let drum = document.querySelector('[data-d='+key+']');
+                let audio = document.querySelector('[data-a='+key+']');
+                drum.classList.add('hit');
+                setTimeout(()=>{
+                drum.classList.remove('hit');
+                },100);
+            audio.currentTime = 0;
+            audio.play();
+            
+            checkResult (this.array, event)
+            
+        });
     }
 } 
+
+function checkResult (arrayWithNotes, eventOur) {
+    let array = arrayWithNotes
+    array.push(eventOur.key)
+
+    if (array[0] == 'v' || array[0] == 'V') {
+        if (array[1] == 'k' || array[0] == 'K') {
+            if (array[2] == 'v' || array[0] == 'V') {
+                if (array[3] == 's' || array[0] == 'S') {
+                    if (array[4] == 'k' || array[0] == 'K') {
+                        if (array[5] == 'h' || array[0] == 'H') {
+                            if (array[6] == 's' || array[0] == 'S') {
+                                if (array[7] == 'h' || array[0] == 'H') {
+                                    if (array[8] == 'k' || array[0] == 'K') {
+                                        alert('Здорово получилось! ')
+                                        array.splice(8,8)
+                                    }
+                                } else {
+                                    array.splice(7,8)
+                                }
+                            } else {
+                                array.splice(6,8)
+                            }
+                        } else {
+                            array.splice(5,8)
+                        }
+                    } else {
+                        array.splice(4,8)
+                    }
+                } else {
+                    array.splice(3,8)
+                }
+            } else {
+                array.splice(2,8)
+            }
+        } else {
+            array.splice(1,8) 
+        }
+    } else {
+        array.splice(0,8)
+    }
+
+    if (array.length > 8) {
+        array.splice(0,8)
+    }
+
+
+    // if (array[0] == 'v') {
+    //     if (array[1] == 'k') {
+    //         if (array[2] == 'v') {
+    //             if (array[3] == 's') {
+    //                 alert('win')
+    //                 // createModalWindowWinner ()
+    //             } else {
+    //                 array.splice(3,4)
+    //             }
+    //         } else {
+    //             array.splice(2,4)
+    //         }
+    //     } else {
+    //         array.splice(1,4) 
+    //     }
+    // } else {
+    //     array.splice(0,4)
+    // }
+
+    // if (array.length > 3) {
+    //     array.splice(0,4)
+    // }
+}
+
+// function createModalWindowWinner () {
+//     const container = document.querySelector('.container')
+
+//     const div = document.createElement('div')
+//     div.classList = 'modal'
+//     container.append(div)
+// }

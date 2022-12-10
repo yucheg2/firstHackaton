@@ -9,24 +9,19 @@ export class GameDrumModule extends Module {
 
 
     trigger() {
-        // alert('Hello')
-        let agree = confirm('Поиграем?')
+        let agree = confirm('Поиграем? Тебе нужно будет сыграть один бит!')
         if (agree === true) {
-            alert('Отлично! Тебе нужно будет сыграть на бариках. Повторяй биты!')
-
+            
             class Round1 extends Round {
                 constructor(level,task) {
                     super(level, task)
                 }
             }
-            const round1 = new Round1('Уровень первый','hi-hat+kick - hi-hat+snare - hi-hat+kick - hi-hat+snare')
+            const round1 = new Round1('Уровень первый','Том 1 - Kick - Том 1 - Snare - Kick - HiHat - Snare - HiHat - Kick')
+
             round1.createDrumFiled()
             round1.game()
-
-            console.log(round1);
-
         }
-        // throw new Error(`Trigger method should be implemented in module "${this.type}"`)
       }
     
     toHTML() {

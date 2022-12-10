@@ -1,10 +1,8 @@
 
 export class Game {
     #dedescription
-    #result
     constructor(description) {
-        this.#dedescription = description//описание игры
-        this.#result = 0 // по умолчанию результат игры равен 0
+        this.#dedescription = description //описание игры
     }
 
     #description() {
@@ -49,7 +47,7 @@ export class Game {
         gameWindow.append(description)
         gameContainer.append (gameWindow,overlay)
 
-        description.addEventListener('click', async (event) => {
+        description.addEventListener('click', (event) => {
 
             if(!gameExist) { 
                 const game = this.#gameBegin()           
