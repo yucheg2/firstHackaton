@@ -6,7 +6,6 @@ export class Round {
         this.task = task;
         this.array = []
     }
-    // метод который будет отрисовывать поле
     createDrumFiled () {
         const body = document.querySelector('body')
         const div = document.createElement('div')   
@@ -84,7 +83,6 @@ export class Round {
         div.append(audio7)
 
     }
-    // метод для генерирования звуков при нажатии на клавиши
     game () {
             const body = document.querySelector('body')
             document.body.style.background = 'rgb(117, 118, 74)';
@@ -151,36 +149,4 @@ function checkResult (arrayWithNotes, eventOur) {
     if (array.length > 8) {
         array.splice(0,8)
     }
-
-
-    // if (array[0] == 'v') {
-    //     if (array[1] == 'k') {
-    //         if (array[2] == 'v') {
-    //             if (array[3] == 's') {
-    //                 alert('win')
-    //                 // createModalWindowWinner ()
-    //             } else {
-    //                 array.splice(3,4)
-    //             }
-    //         } else {
-    //             array.splice(2,4)
-    //         }
-    //     } else {
-    //         array.splice(1,4) 
-    //     }
-    // } else {
-    //     array.splice(0,4)
-    // }
-
-    // if (array.length > 3) {
-    //     array.splice(0,4)
-    // }
 }
-
-// function createModalWindowWinner () {
-//     const container = document.querySelector('.container')
-
-//     const div = document.createElement('div')
-//     div.classList = 'modal'
-//     container.append(div)
-// }

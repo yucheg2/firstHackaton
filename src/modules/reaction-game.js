@@ -31,9 +31,6 @@ export class ReactionGame extends Module{
             localStorage.setItem('reactionResult',`${finResult}`)
                 
             const button =reactionResult.querySelector('button')
-            // button.style.position = 'absolute'
-            // button.style.right = '20px'
-            // button.style.top = '20px'
 
             button.addEventListener('click',() => {
                 closeGameContainer('.game-r-container')

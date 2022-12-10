@@ -8,10 +8,6 @@ const contextMenu = new ContextMenu('#menu')
 
 let arrayModules = [];
 
-// const firstModule = new BackgroundModule('changeColor','Изменить цвет');
-
-
-
 const secondModule = new BackgroundModule('changeColor','Изменить цвет');
 const thirdModule = new GameDrumModule('GameDrum', 'Поиграть на барабанах');
 const reactionModule = new ReactionGame ('reactionGame', 'Игра на реакцию')
@@ -40,27 +36,3 @@ document.addEventListener('click', (event) => {
         contextMenu.close()
         break
 }})
-        // contextMenu.close()
-    // }
-
-    // switch (target.dataset.type) {
-    //     case 'GameDrum': 
-    //     thirdModule.trigger()
-    //     contextMenu.close()
-    //     break
-    // }
-
-     // if (target.dataset.type == 'GameDrum') {
-    //     thirdModule.trigger()
-    //     contextMenu.close()
-    // }
-
-// })
-
-
-// contextMenu.startMenu()
-
-
-// const game = new GameDrumModule('game','drum')
-// game.trigger()
-// game.toHTML()
