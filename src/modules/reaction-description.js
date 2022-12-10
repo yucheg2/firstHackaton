@@ -9,16 +9,16 @@ export class Game {
 
     #description() {
         const closeDescription = document.createElement('div')
-        closeDescription.className = 'description-close'
+        closeDescription.className = 'description-r-close'
         const closeText = document.createElement('span')
-        closeText.className ='description-close-text'
+        closeText.className ='description-r-close-text'
         closeText.innerText = 'Чтобы начать игру кликните по окну.'
         closeDescription.append(closeText)
 
         const description = document.createElement('div')
-        description.className = 'description'
+        description.className = 'description-r'
         const descriptionText = document.createElement('h1')
-        descriptionText.className = 'description-text'
+        descriptionText.className = 'description-r-text'
         descriptionText.innerText = this.#dedescription
 
         description.append(descriptionText,closeDescription)
@@ -35,12 +35,12 @@ export class Game {
 
     run(gameLogic) {
         const gameExist = document.querySelector('.game-r')
-        const isExist = document.querySelector('.game-container')
+        const isExist = document.querySelector('.game-r-container')
 
         const gameContainer = document.createElement('div')
-        gameContainer.className = 'game-container'
+        gameContainer.className = 'game-r-container'
         const gameWindow = document.createElement('div')
-        gameWindow.className = 'game-window'
+        gameWindow.className = 'game-r-window'
 
         const description = this.#description()
         const overlay = document.createElement('div')
@@ -65,7 +65,7 @@ export class Game {
             document.body.append( gameContainer)
         } else {
             isExist.style.opacity = "1"
-            const description = isExist.querySelector('.description')
+            const description = isExist.querySelector('.description-r')
             description.style.display = "inline"
         }
         if (gameExist) {
