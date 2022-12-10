@@ -1,4 +1,3 @@
-import { async } from "regenerator-runtime"
 
 export class Game {
     #dedescription
@@ -29,16 +28,15 @@ export class Game {
 
     #gameBegin () {
         const game = document.createElement('div')
-        game.className = 'game'
+        game.className = 'game-r'
 
         return game
     }
 
-    gameLogic () {
-        //логика твоей игры
-    }
+    run(gameLogic) {
+        const gameExist = document.querySelector('.game-r')
+        const isExist = document.querySelector('.game-container')
 
-    run() {
         const gameContainer = document.createElement('div')
         gameContainer.className = 'game-container'
         const gameWindow = document.createElement('div')
@@ -52,19 +50,26 @@ export class Game {
         gameContainer.append (gameWindow,overlay)
 
         description.addEventListener('click', async (event) => {
-            const game = this.#gameBegin()
-            gameWindow.append(game)
+
+            if(!gameExist) { 
+                const game = this.#gameBegin()           
+                gameWindow.append(game)
+            } else {
+                gameExist.style.display = 'inline'
+            }
             description.style.display = 'none'
-            this.gameLogic()
+            gameLogic()
         })
 
-        const isExist = document.querySelector('.game-container')
         if (!isExist) {
             document.body.append( gameContainer)
         } else {
             isExist.style.opacity = "1"
             const description = isExist.querySelector('.description')
             description.style.display = "inline"
+        }
+        if (gameExist) {
+            gameExist.style.display = 'none'
         }
     }
 }

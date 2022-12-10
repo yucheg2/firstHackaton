@@ -1,17 +1,19 @@
 import { setTimeout } from "core-js";
-import { Game } from "../core/game";
+import { Game } from "./game-description";
 import { random } from "../utils"
 import { closeGameContainer } from "../utils";
 import { Module } from "../core/module"
 
-export class ReactionGame extends Game{
-    constructor() {
-        super('Твоя задача - как можно быстрее щёлкнуть по экрану, как только увидишь зелёный цвет!')
+export class ReactionGame extends Module{
+    #game
+    constructor(type,text) {
+        super(type,text)
+        this.#game = new Game('Твоя задача - как можно быстрее щёлкнуть по экрану, как только увидишь зелёный цвет!')
     }
 
     gameLogic() {
-        const game = document.querySelector('.game')
 
+        const game = document.querySelector('.game-r')
         let startResult = 0
         const secondToWait = random(1,10)
         const greenScrean = document.createElement('div')
@@ -35,14 +37,23 @@ export class ReactionGame extends Game{
 
             button.addEventListener('click',() => {
                 closeGameContainer()
-                setTimeout(()=>{reactionResult.style.display = 'none'},800)
+                setTimeout(()=>{
+                reactionResult.style.display = 'none'
+                game.remove()
+            },800)
             })
         })
 
         game.append(greenScrean)
+
+
         setTimeout(() => {
             greenScrean.style.display = 'inline' 
             startResult = Date.now()
         }, secondToWait*1000)
+    }
+
+    trigger() {
+        this.#game.run(this.gameLogic)
     }
 }
