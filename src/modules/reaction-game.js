@@ -1,5 +1,5 @@
 import { setTimeout } from "core-js";
-import { Game } from "./game-description";
+import { Game } from "./reaction-description";
 import { random } from "../utils"
 import { closeGameContainer } from "../utils";
 import { Module } from "../core/module"

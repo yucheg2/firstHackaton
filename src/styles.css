@@ -41,6 +41,7 @@ body {
     background: #343434;
 }
 
+/*- styles for reaction game-*/
 .game-container {
     position: fixed;
     top: 0;
@@ -111,4 +112,10 @@ body {
     top: 0;
     left: 0;
     border-radius: 10px;
+}
+
+.reaction-result {
+    position: relative;
+    display: block;
+    top: 50%;
 }
