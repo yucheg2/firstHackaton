@@ -22,7 +22,7 @@ export class ReactionGame extends Module{
         greenScrean.style.display = 'none'
 
         greenScrean.addEventListener('click',(event) => {
-            const finResult = Date.now() - startResult
+            const finResult = Date.now() - startResult - 100
             greenScrean.style.display = 'none'
             const reactionResult = document.createElement('div')
             reactionResult.className = 'reaction-result'
