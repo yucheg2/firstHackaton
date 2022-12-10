@@ -1,5 +1,6 @@
 import './styles.css'
 import { ContextMenu } from './menu.js'
+import { ReactionGame } from './modules/reaction-game'
 // import { GameDrumModule } from './modules/drum-game.module'
 import { BackgroundModule } from './modules/background.module'
 
@@ -7,11 +8,11 @@ const contextMenu = new ContextMenu('#menu')
 
 let arrayModules = [];
 
-const firstModule = new BackgroundModule('changeBack','Изменить задний фон');
-const secondModule = new BackgroundModule('changeColor','Изменить цвет');
+const firstModule = new BackgroundModule('changeColor','Изменить цвет');
+const reactionModule = new ReactionGame ('reactionGame', 'Игра на реакцию')
 
 arrayModules.push(firstModule)
-arrayModules.push(secondModule)
+arrayModules.push(reactionModule)
 
 arrayModules.forEach ((item) => {
     contextMenu.add(item)
@@ -21,11 +22,14 @@ arrayModules.forEach ((item) => {
 document.addEventListener('click', (event) => {
     const { target } = event;
 
-    if (target.dataset.type == 'changeColor') {
+    switch (target.dataset.type) {
+        case 'changeColor':
         firstModule.trigger()
-        contextMenu.close()
-    }
-})
+        contextMenu.close(); break;
+        case 'reactionGame':
+        reactionModule.trigger()
+        contextMenu.close();break;
+}})
 
 
 // contextMenu.startMenu()
