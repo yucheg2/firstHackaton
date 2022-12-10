@@ -1,6 +1,9 @@
 import './styles.css'
 import { ContextMenu } from './menu.js'
+import { ReactionGame } from './modules/reaction.module'
 
-const contextMenu = new ContextMenu()
+const array = [new BackgroundModule()]
 
-contextMenu.startMenu()
+const contextMenu = new ContextMenu('#menu')
+
+contextMenu.add(new ReactionGame('reaction',"Игра на реакцию"))
