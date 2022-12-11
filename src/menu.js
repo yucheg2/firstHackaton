@@ -1,4 +1,7 @@
 import {Menu} from './core/menu'
+import { Welcome } from './mainpage/welcome'
+
+const welcome = new Welcome()
 
 export class ContextMenu extends Menu {
     constructor(selector) {
@@ -9,9 +12,12 @@ export class ContextMenu extends Menu {
         })
     }
     open (top, left) {
+        if (localStorage.getItem('name')) {
         this.el.style.top = `${top}px`
         this.el.style.left = `${left}px`
         this.el.classList.add('open')
+        welcome.close()
+        }
     }
 
     add (m) {
