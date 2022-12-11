@@ -12,29 +12,33 @@ export class Round {
         div.classList = 'game'
         body.append(div)
 
+        const innerContainerDrum = document.createElement('div')
+        innerContainerDrum.classList = 'game-drum'
+        div.append(innerContainerDrum)
+
         const h1 = document.createElement('h1')   
-        h1.classList = 'header'
+        h1.classList = 'header-d'
         h1.textContent = `${this.level}`
-        div.append(h1)
+        innerContainerDrum.append(h1)
         
         const drumImg = document.createElement('img')
         drumImg.classList = 'drumsImg'
         drumImg.src = 'https://cdn-icons-png.flaticon.com/512/4310/4310857.png'
-        div.append(drumImg)
+        innerContainerDrum.append(drumImg)
 
         const task = document.createElement('div')
         task.classList = 'task'
         task.textContent = `Сыграй: ${this.task}`
-        div.append(task)
+        innerContainerDrum.append(task)
 
         const help = document.createElement('img')
         help.classList = 'help'
         help.src = '../../img/drum_game_info.jpg'
-        div.append(help)
+        innerContainerDrum.append(help)
 
         const containerDrum = document.createElement('div')
         containerDrum.classList = 'drums'
-        div.append(containerDrum)
+        innerContainerDrum.append(containerDrum)
 
         const innerContainer = document.querySelector('.drums')
         innerContainer.innerHTML = ` 
@@ -50,37 +54,37 @@ export class Round {
         const audio1 = document.createElement('audio')
         audio1.dataset.a = 'k'
         audio1.src = "https://res.cloudinary.com/dspfsamgq/video/upload/v1587707379/Drums/kick_kzxfhd.mp3"
-        div.append(audio1)
+        innerContainerDrum.append(audio1)
 
         const audio2 = document.createElement('audio')
         audio2.dataset.a = 's'
         audio2.src = "https://res.cloudinary.com/dspfsamgq/video/upload/v1587707379/Drums/snare_kevw4t.mp3"
-        div.append(audio2)
+        innerContainerDrum.append(audio2)
 
         const audio3 = document.createElement('audio')
         audio3.dataset.a = 'h'
         audio3.src = "https://res.cloudinary.com/dspfsamgq/video/upload/v1587707379/Drums/hi-hat_q1jbgc.mp3"
-        div.append(audio3)
+        innerContainerDrum.append(audio3)
 
         const audio4 = document.createElement('audio')
         audio4.dataset.a = 'v'
         audio4.src = "https://res.cloudinary.com/dspfsamgq/video/upload/v1587707379/Drums/tom1_cqo1b5.mp3"
-        div.append(audio4)
+        innerContainerDrum.append(audio4)
 
         const audio5 = document.createElement('audio')
         audio5.dataset.a = 'b'
         audio5.src = "https://res.cloudinary.com/dspfsamgq/video/upload/v1587707379/Drums/tom2_zqf4wh.mp3"
-        div.append(audio5)
+        innerContainerDrum.append(audio5)
 
         const audio6 = document.createElement('audio')
         audio6.dataset.a = 'n'
         audio6.src = "https://res.cloudinary.com/dspfsamgq/video/upload/v1587707379/Drums/tom3_jyz3vy.mp3"
-        div.append(audio6)
+        innerContainerDrum.append(audio6)
 
         const audio7 = document.createElement('audio')
         audio7.dataset.a = 'c'
         audio7.src = "https://res.cloudinary.com/dspfsamgq/video/upload/v1587707379/Drums/crash_q3in9r.mp3"
-        div.append(audio7)
+        innerContainerDrum.append(audio7)
 
     }
     game () {
@@ -108,6 +112,14 @@ export class Round {
 function checkResult (arrayWithNotes, eventOur) {
     let array = arrayWithNotes
     array.push(eventOur.key)
+
+    // console.log(array);
+
+    // array.forEach((item, index) => {
+    //    if (item[index] == 'v' || item[index] == 'V') {
+    //     alert('sa')
+    //    }
+    // })
 
     if (array[0] == 'v' || array[0] == 'V') {
         if (array[1] == 'k' || array[0] == 'K') {

@@ -6,6 +6,18 @@
     margin: 0;
 }
 
+.game-table{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgb(243, 221, 221);
+    align-items: center;
+} 
+
+
 .rowTable{
     background-image: url(https://free4kwallpapers.com/uploads/originals/2016/12/19/mega-mario-wallpaper.jpg); 
     background-size: 100%;
