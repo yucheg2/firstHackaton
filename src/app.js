@@ -23,7 +23,7 @@ const tableResult = new TableResult ('tableResult', 'Посмотреть рез
 
 welcome.showInput()
 
-arrayModules.push(secondModule, reactionModule, fourdModule, guessNumber, DrumModule)
+arrayModules.push(secondModule, reactionModule, fourdModule, guessNumber, drumModule)
 
 arrayModules.forEach (item => contextMenu.add(item))
 

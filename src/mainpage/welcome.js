@@ -29,7 +29,7 @@ export class Welcome {
                 event.preventDefault()
                 const { target } = event
                 localStorage.setItem('name',input.value)
-                inputContainer.innerHTML = `<h1 style="color: white;">Привет, ${localStorage.getItem('name')}!<br>Если хочешь поиграть - нажми правой кнопкой мыши по экрану. </h1>`
+                inputContainer.innerHTML = `<h1 class= "s"style="color: white;">Привет, ${localStorage.getItem('name')}!<br>Если хочешь поиграть - нажми правой кнопкой мыши по экрану. </h1>`
             })
         } else {
             document.body.append(header)
