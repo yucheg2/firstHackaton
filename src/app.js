@@ -6,8 +6,9 @@ import { BackgroundModule } from './modules/background.module'
 import { ShapeModule } from './modules/shape.module'
 import { GuessNumberModule } from './modules/guess-the-number'
 import { stopPreviousGame } from './utils'
+import { Welcome } from './mainpage/welcome'
 
-
+const welcome = new Welcome()
 const contextMenu = new ContextMenu('#menu')
 
 let arrayModules = [];
@@ -18,10 +19,11 @@ const reactionModule = new ReactionGame ('reactionGame', 'Игра на реак
 const fourdModule = new ShapeModule ('Shape',  'Случайная фигура')
 const guessNumber = new GuessNumberModule('Guess', 'Игра: Угадай число' )
 
+welcome.showInput()
+
 arrayModules.push(secondModule, reactionModule, fourdModule, guessNumber, DrumModule)
 
 arrayModules.forEach (item => contextMenu.add(item))
-
 
 document.addEventListener('click', (event) => {
     const { target } = event;
