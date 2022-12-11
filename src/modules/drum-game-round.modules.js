@@ -96,15 +96,22 @@ export class Round {
                 let key = event.key;
                 let drum = document.querySelector('[data-d='+key+']');
                 let audio = document.querySelector('[data-a='+key+']');
-                drum.classList.add('hit');
+                if (drum) {
+                    drum.classList.add('hit');
+                }
                 setTimeout(()=>{
-                drum.classList.remove('hit');
+                    if (drum) {
+                        drum.classList.remove('hit');
+                    }
+
                 },100);
-            audio.currentTime = 0;
-            audio.play();
+
+                if (audio) {
+                    audio.currentTime = 0;
+                    audio.play();
+                }
             
             checkResult (this.array, event)
-            
         });
     }    
 } 
@@ -113,51 +120,51 @@ function checkResult (arrayWithNotes, eventOur) {
     let array = arrayWithNotes
     array.push(eventOur.key)
 
-    // console.log(array);
+    let letters = ['v', 'k', 'v', 's', 'k', 'h', 's', 'h', 'k']
 
-    // array.forEach((item, index) => {
-    //    if (item[index] == 'v' || item[index] == 'V') {
-    //     alert('sa')
-    //    }
-    // })
+    letters.forEach((item) => {
+        if (eventOur.key !== item) {
+            return
+        }
+    })
 
     if (array[0] == 'v' || array[0] == 'V') {
-        if (array[1] == 'k' || array[0] == 'K') {
-            if (array[2] == 'v' || array[0] == 'V') {
-                if (array[3] == 's' || array[0] == 'S') {
-                    if (array[4] == 'k' || array[0] == 'K') {
-                        if (array[5] == 'h' || array[0] == 'H') {
-                            if (array[6] == 's' || array[0] == 'S') {
-                                if (array[7] == 'h' || array[0] == 'H') {
-                                    if (array[8] == 'k' || array[0] == 'K') {
-                                        alert('Здорово получилось! ')
-                                        localStorage.setItem('DrumGame', true)
-                                        array.splice(8,8)
-                                    }
-                                } else {
-                                    array.splice(7,8)
-                                }
-                            } else {
-                                array.splice(6,8)
-                            }
-                        } else {
-                            array.splice(5,8)
+      if (array[1] == 'k' || array[0] == 'K') {
+        if (array[2] == 'v' || array[0] == 'V') {
+          if (array[3] == 's' || array[0] == 'S') {
+            if (array[4] == 'k' || array[0] == 'K') {
+              if (array[5] == 'h' || array[0] == 'H') {
+                if (array[6] == 's' || array[0] == 'S') {
+                  if (array[7] == 'h' || array[0] == 'H') {
+                    if (array[8] == 'k' || array[0] == 'K') {
+                        alert('Здорово получилось! ')
+                        localStorage.setItem('DrumGame', true)
+                        array.splice(8,8)
                         }
-                    } else {
-                        array.splice(4,8)
+                        } else {
+                        array.splice(7,8)
                     }
-                } else {
-                    array.splice(3,8)
-                }
-            } else {
-                array.splice(2,8)
+                    } else {
+                array.splice(6,8)
             }
-        } else {
-            array.splice(1,8) 
+            } else {
+        array.splice(5,8)
         }
-    } else {
-        array.splice(0,8)
+        } else {
+    array.splice(4,8)
     }
+    } else {
+    array.splice(3,8)
+    }
+    } else {
+     array.splice(2,8)
+     }
+   } else {
+  array.splice(1,8) 
+  }
+  } else {
+      array.splice(0,8)
+  }
 
     if (array.length > 8) {
         array.splice(0,8)
