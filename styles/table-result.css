@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.rowTable{
+    background-image: url(https://free4kwallpapers.com/uploads/originals/2016/12/19/mega-mario-wallpaper.jpg); 
+    background-size: 100%;
+    border-radius: 35px;
+    width: 80vh;
+    height: 30vh;
+    font-family: 'Roboto',sans-serif;
+    font-size: 40px;
+    padding-bottom: 100px;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: rgb(221, 26, 26);
+    transition: .3s;
+    margin-bottom: 20px;
+}
