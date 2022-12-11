@@ -17,6 +17,6 @@ export function randomColor() {
 export function stopPreviousGame() {
   const game = document.querySelector('.game')
   if (game) {
-    game.remove()  
+    game.remove()       
   }
 }

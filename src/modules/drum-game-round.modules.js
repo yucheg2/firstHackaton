@@ -9,7 +9,7 @@ export class Round {
     createDrumFiled () {
         const body = document.querySelector('body')
         const div = document.createElement('div')   
-        div.classList = 'container'
+        div.classList = 'game'
         body.append(div)
 
         const h1 = document.createElement('h1')   
