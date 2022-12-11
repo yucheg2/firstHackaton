@@ -6,6 +6,8 @@ export class Game {
     }
 
     #description() {
+        const game = document.createElement('div')
+        game.className = 'game'
         const closeDescription = document.createElement('div')
         closeDescription.className = 'description-r-close'
         const closeText = document.createElement('span')
@@ -35,6 +37,8 @@ export class Game {
         const gameExist = document.querySelector('.game-r')
         const isExist = document.querySelector('.game-r-container')
 
+        const game = document.createElement('div')
+        game.className = 'game'
         const gameContainer = document.createElement('div')
         gameContainer.className = 'game-r-container'
         const gameWindow = document.createElement('div')
@@ -46,6 +50,7 @@ export class Game {
 
         gameWindow.append(description)
         gameContainer.append (gameWindow,overlay)
+        game.append(gameContainer)
 
         description.addEventListener('click', (event) => {
 
@@ -60,7 +65,7 @@ export class Game {
         })
 
         if (!isExist) {
-            document.body.append( gameContainer)
+            document.body.append( game)
         } else {
             isExist.style.opacity = "1"
             const description = isExist.querySelector('.description-r')

@@ -15,7 +15,7 @@ export function randomColor() {
 }
 
 export function stopPreviousGame() {
-  const container = document.querySelector('.container')
+  const container = document.querySelector('.game')
   if (container) {
       container.remove()
       // document.body.style.backgroundColor = 'rgb(255, 255, 255)'
