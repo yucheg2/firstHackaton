@@ -16,6 +16,13 @@ export class ShapeModule extends Module {
 
         //отрисовка фигуры
         function createRandomElement(obj) {
+            const game = document.createElement('div')
+            game.classList.add('game')
+            game.style.width = '100%'
+            game.style.height = '100%'
+            game.style.position = 'relative'
+            document.body.append(game)
+
             const figure = document.createElement('div')
             figure.classList.add('random-figure')
             figure.style.width = obj.width
@@ -27,10 +34,10 @@ export class ShapeModule extends Module {
             }
 
             figure.style.position = 'absolute'
-            figure.style.left = random(1, window.screen.width - parseInt(obj.width)) + 'px'
-            figure.style.top = random(1, document.body.clientHeight - parseInt(obj.height)) + 'px'             
-            document.body.style.position = 'relative'
-            document.body.append(figure)
+            figure.style.left = random(1, document.documentElement.clientWidth - parseInt(obj.width)) + 'px'
+            figure.style.top = random(1, document.documentElement.clientHeight - parseInt(obj.height)) + 'px'             
+            
+            game.append(figure)
         }
         // выбираем случайную фигуру
         const figureNumber = random(1, 3)
