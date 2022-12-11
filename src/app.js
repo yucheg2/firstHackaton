@@ -4,6 +4,7 @@ import { ReactionGame } from './modules/reaction-game'
 import { GameDrumModule } from './modules/drum-game.module'
 import { BackgroundModule } from './modules/background.module'
 import { ShapeModule } from './modules/shape.module'
+import { GuessNumberModule } from './modules/guess-the-number'
 
 const contextMenu = new ContextMenu('#menu')
 
@@ -13,11 +14,13 @@ const secondModule = new BackgroundModule('changeColor','Изменить цве
 const thirdModule = new GameDrumModule('GameDrum', 'Поиграть на барабанах')
 const reactionModule = new ReactionGame ('reactionGame', 'Игра на реакцию')
 const fourdModule = new ShapeModule ('Shape',  'Случайная фигура')
+const guessNumber = new GuessNumberModule('Guess', 'Игра: Угадай число' )
 
 arrayModules.push(secondModule)
 arrayModules.push(reactionModule)
 arrayModules.push(thirdModule)
 arrayModules.push(fourdModule)
+arrayModules.push(guessNumber)
 
 arrayModules.forEach ((item) => {
     contextMenu.add(item)
@@ -42,6 +45,10 @@ document.addEventListener('click', (event) => {
         break
         case 'Shape': 
             fourdModule.trigger()
+            contextMenu.close()
+        break
+        case 'Guess':
+            guessNumber.trigger()
             contextMenu.close()
         break
 }})
