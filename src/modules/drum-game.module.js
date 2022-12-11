@@ -1,6 +1,7 @@
 import {Module} from '../core/module'
 import {Round} from './drum-game-round.modules'
-
+// 
+import '../../styles/guess-number-game.css'
 export class GameDrumModule extends Module {
     constructor(type, text) {
         super(type, text)
