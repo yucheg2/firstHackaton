@@ -3,6 +3,7 @@ import { Game } from "./reaction-description";
 import { random } from "../utils"
 import { closeGameContainer } from "../utils";
 import { Module } from "../core/module"
+import '../../styles/reaction-game.css'
 
 export class ReactionGame extends Module{
     #game
