@@ -13,3 +13,22 @@
 .name-input h1{
     text-align: center;
 }
+.name-input input {
+    width: 30vh;
+    padding: 15px 20px;
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+    border: 2px solid white;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    font-size: 18px;
+    color: whitesmoke;
+}
+.name-input input:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}

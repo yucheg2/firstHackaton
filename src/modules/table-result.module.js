@@ -45,8 +45,6 @@ function createTableResult (arrayWithResult) {
     innerContainer.classList = 'game-table'
     container.append(innerContainer)
  
-    console.log(arrayWithResult);
-
     arrayWithResult.forEach((item) => {
         const rowTable = document.createElement('div')
         rowTable.classList = 'rowTable'
