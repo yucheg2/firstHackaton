@@ -14,7 +14,7 @@ trigger() {
         main.className = 'game'
         const h1 = document.createElement('h1')
         h1.className = 'guess'
-        h1.textContent = 'ИГРА [Угадай число от 1 до 100]'
+        h1.textContent = 'ИГРА [Угадай число от 0 до 100]'
         const output = document.createElement('ul')
         output.className = 'output'
         const prom = document.createElement('form')
@@ -60,7 +60,6 @@ trigger() {
         
         }
         
-a
         
         function processInput(input) {
             if (!input) return
