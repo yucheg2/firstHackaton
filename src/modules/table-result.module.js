@@ -54,7 +54,6 @@ function createTableResult (arrayWithResult) {
 
         innerContainer.append(rowTable)
 
-        // По такой логике помещаем то, как хотим, чтобы называлась ваша игра и выдавала результат
         if (item == 'DrumGame - true') {
             rowTable.textContent = 'Барабаны - пройдены'
         }
@@ -67,7 +66,6 @@ function createTableResult (arrayWithResult) {
             rowTable.innerHTML = `Количество попыток <br> в игре угадай число  - ${item.split('-')[1]}`
         }
 
-        // функционал убирающий имя из итоговых таблиц
         if (item.includes('name')) {
             rowTable.remove()
         }

@@ -1,4 +1,4 @@
-import {Module} from '../core/module'
+import { Module } from '../core/module'
 import '../../styles/guess-number-game.css'
 
 export class GuessNumberModule extends Module {
@@ -7,7 +7,6 @@ export class GuessNumberModule extends Module {
     }
 
 trigger() {
-
 
         function makeHTML() {
         const main = document.createElement('div')
@@ -26,8 +25,6 @@ trigger() {
         main.append(h1, output, prom)
         
         document.body.append(main)
-        
-        
         }
         
         makeHTML()
@@ -40,8 +37,6 @@ trigger() {
         const input = document.querySelector('input')
         
         input.focus()
-        
-        // outputMessage('Введите имя игрока:')
         
         prom.addEventListener('submit', handleSubmit)
 
@@ -59,23 +54,17 @@ trigger() {
             const li = document.createElement('li')
             li.textContent = message
             output.appendChild(li)
-        
         }
-        
         
         function processInput(input) {
             if (!input) return
-              
-
         
             let attempt = Number.parseInt(input)
             if (Number.isNaN(attempt)) return
 
             outputMessage(input)
 
-
             attempts += 1
-
 
             if (attempt > number) {
                 outputMessage('Много. Попробуй еще!')
@@ -88,12 +77,12 @@ trigger() {
         
                 prom.remove()
         
+                if (localStorage.getItem('attempts') >= attempts || localStorage.getItem('attempts') === null)  {
+                    localStorage.setItem('attempts',`${attempts}`)
+                }
             }
-        
-            localStorage.setItem('attempts', attempts)
-        
         }
-        }
+    }
 
     
 

@@ -1,5 +1,5 @@
-import {Module} from '../core/module'
-import {Round} from './drum-game-round.modules'
+import { Module } from '../core/module'
+import { Round } from './drum-game-round.modules'
 // 
 export class GameDrumModule extends Module {
     constructor(type, text) {

@@ -29,9 +29,12 @@ export class ReactionGame extends Module{
             reactionResult.className = 'reaction-result'
             reactionResult.innerHTML = `<h1 class = 'reaction-result-text'>Ваш результат: ${finResult}ms.</h1><button class = "result-button">Закрыть игру</button>`
             game.append(reactionResult)
-            localStorage.setItem('reactionResult',`${finResult}`)
-                
-            const button =reactionResult.querySelector('button')
+
+            if (localStorage.getItem('reactionResult') >= finResult || localStorage.getItem('reactionResult') === null)  {
+                localStorage.setItem('reactionResult',`${finResult}`)
+            }
+            
+            const button = reactionResult.querySelector('button')
 
             button.addEventListener('click',() => {
                 closeGameContainer('.game-r-container')
