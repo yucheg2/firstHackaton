@@ -31,7 +31,7 @@ trigger() {
         }
         
         makeHTML()
-        let name = ''
+        let name = localStorage.getItem('name')
         let number = Math.floor(Math.random() * 100)
         let attempts = 0
         
@@ -41,9 +41,11 @@ trigger() {
         
         input.focus()
         
-        outputMessage('Введите имя игрока:')
+        // outputMessage('Введите имя игрока:')
         
         prom.addEventListener('submit', handleSubmit)
+
+        outputMessage(`${name}, тебе необходимо отгадать случайное число от 0 до 100 за наименьшее кол-во попыток. После каждой попытки появится сообщение 'мало', 'много' или 'верно'.` )
         
         function handleSubmit(event) {
         
@@ -64,12 +66,11 @@ trigger() {
         function processInput(input) {
             if (!input) return
         
-            if (!name) {
-                name = input
-                // clearOutput()
-                outputMessage(`${name}, тебе необходимо отгадать случайное число от 0 до 100 за наименьшее кол-во попыток. После каждой попытки появится сообщение 'мало', 'много' или 'верно'.` )
-                return
-            }
+            // if (!name) {
+            //     name = input
+            //     outputMessage(`${name}, тебе необходимо отгадать случайное число от 0 до 100 за наименьшее кол-во попыток. После каждой попытки появится сообщение 'мало', 'много' или 'верно'.` )
+            //     return
+            // }
         
             outputMessage(input)
         
