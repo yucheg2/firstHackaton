@@ -102,7 +102,7 @@ export class Round {
             checkResult (this.array, event)
             
         });
-    }
+    }    
 } 
 
 function checkResult (arrayWithNotes, eventOur) {
@@ -119,6 +119,7 @@ function checkResult (arrayWithNotes, eventOur) {
                                 if (array[7] == 'h' || array[0] == 'H') {
                                     if (array[8] == 'k' || array[0] == 'K') {
                                         alert('Здорово получилось! ')
+                                        localStorage.setItem('DrumGame', true)
                                         array.splice(8,8)
                                     }
                                 } else {

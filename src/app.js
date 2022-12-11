@@ -9,16 +9,14 @@ const contextMenu = new ContextMenu('#menu')
 let arrayModules = [];
 
 const secondModule = new BackgroundModule('changeColor','Изменить цвет');
-const thirdModule = new GameDrumModule('GameDrum', 'Поиграть на барабанах');
+const DrumModule = new GameDrumModule('GameDrum', 'Поиграть на барабанах');
 const reactionModule = new ReactionGame ('reactionGame', 'Игра на реакцию')
 arrayModules.push(secondModule)
 arrayModules.push(reactionModule)
-arrayModules.push(thirdModule)
+arrayModules.push(DrumModule)
 
 
-arrayModules.forEach ((item) => {
-    contextMenu.add(item)
-})
+arrayModules.forEach (item => contextMenu.add(item))
 
 
 document.addEventListener('click', (event) => {
@@ -28,11 +26,16 @@ document.addEventListener('click', (event) => {
         case 'changeColor':
         secondModule.trigger()
         contextMenu.close(); break;
+
         case 'reactionGame':
+        DrumModule.stopPreviousGame()
         reactionModule.trigger()
-        contextMenu.close();break;
+        contextMenu.close();
+        break;
+
         case 'GameDrum': 
-        thirdModule.trigger()
+        DrumModule.stopPreviousGame()
+        DrumModule.trigger()
         contextMenu.close()
         break
 }})
