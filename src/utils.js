@@ -13,3 +13,11 @@ export function randomColor() {
   const blue = random (1, 255)
   return `rgb(${red}, ${green}, ${blue})`
 }
+
+export function stopPreviousGame() {
+  const container = document.querySelector('.container')
+  if (container) {
+      container.remove()
+      // document.body.style.backgroundColor = 'rgb(255, 255, 255)'
+  }
+}
