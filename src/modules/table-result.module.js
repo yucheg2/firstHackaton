@@ -25,15 +25,12 @@ function getResultFromLocalStorage () {
         keys.push(key)
         values.push(value)
     }
-    // console.log(keys);
-    // console.log(values);
 
     let resultArray = []
 
     for (let c = 0; c < localStorage.length; c++) {
         resultArray.push(`${keys[c]} - ${values[c]}`)
     }
-    // console.log(resultArray);
 
     return resultArray
 }
@@ -44,21 +41,35 @@ function createTableResult (arrayWithResult) {
     container.classList = 'game'
     body.append(container)
 
+    const innerContainer = document.createElement('div')
+    innerContainer.classList = 'game-table'
+    container.append(innerContainer)
+ 
     console.log(arrayWithResult);
-   
-    
 
     arrayWithResult.forEach((item) => {
-
         const rowTable = document.createElement('div')
         rowTable.classList = 'rowTable'
         rowTable.textContent = item
+
+        innerContainer.append(rowTable)
 
         // По такой логике помещаем то, как хотим, чтобы называлась ваша игра и выдавала результат
         if (item == 'DrumGame - true') {
             rowTable.textContent = 'Барабаны - пройдены'
         }
-        //  Игра на рекцию
-        container.append(rowTable)
+
+        if (item.includes('reactionResult')) {
+            rowTable.textContent = `Игра на реакцию - ${item.split('-')[1]} мс`
+        }
+
+        if (item.includes('attempts')) {
+            rowTable.innerHTML = `Количество попыток <br> в игре угадай число  - ${item.split('-')[1]}`
+        }
+
+        // функционал убирающий имя из итоговых таблиц
+        if (item.includes('name')) {
+            rowTable.remove()
+        }
     })
 }
