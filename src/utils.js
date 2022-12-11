@@ -2,9 +2,9 @@ export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1))
 }
 
-export function closeGameContainer(selector){
+export function closeGameContainer (selector){
   const gameContainer = document.querySelector(selector)
-  gameContainer.style.opacity = "0"
+  gameContainer.style.opacity = '0'
 }
  
 export function randomColor() {
@@ -14,8 +14,9 @@ export function randomColor() {
   return `rgb(${red}, ${green}, ${blue})`
 }
 
-export function stopPreviousGame() {
+export function stopPreviousGame () {
   const game = document.querySelector('.game')
+  
   if (game) {
     game.remove()       
   }

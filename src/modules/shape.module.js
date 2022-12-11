@@ -8,13 +8,11 @@ export class ShapeModule extends Module {
     }
     
     trigger () { 
-     //ищем эоемент на странице - если есть - удаляем        
         const elem = document.querySelector('.random-figure') 
         if (elem !== null) {
             elem.remove()
         } 
 
-        //отрисовка фигуры
         function createRandomElement(obj) {
             const game = document.createElement('div')
             game.classList.add('game')
@@ -39,12 +37,11 @@ export class ShapeModule extends Module {
             
             game.append(figure)
         }
-        // выбираем случайную фигуру
+
         const figureNumber = random(1, 3)
      
         switch(figureNumber) {
             case 1: 
-                //прямоугольник
                 const rectangle = {
                     width: random(1, 200) + 'px',
                     height: random(1, 200) + 'px',
@@ -53,7 +50,6 @@ export class ShapeModule extends Module {
                 createRandomElement(rectangle)    
             break
             case 2: 
-                //квадрат
                 const squareWidth = random(1, 200) + 'px'
                 const square = {
                     width: squareWidth,
@@ -63,7 +59,6 @@ export class ShapeModule extends Module {
                 createRandomElement(square)                   
             break
             case 3: 
-                //круг
                 const circleWidth = random(10, 100) + 'px'
                 const circle = {
                     width: circleWidth,

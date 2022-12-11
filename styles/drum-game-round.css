@@ -4,6 +4,18 @@
     padding: 0;
     margin: 0;
 }
+
+.game-drum{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: rgb(243, 221, 221);
+    align-items: center;
+    
+} 
+
 .h1 {
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
@@ -29,4 +41,8 @@
     border-radius: 25px;
     padding: 5px;
     height: 200px;
+}
+
+.header-d {
+    height: 5%;
 }

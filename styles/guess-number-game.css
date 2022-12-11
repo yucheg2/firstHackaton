@@ -30,8 +30,9 @@ main {
     color: rgb(255, 255, 255);
     font-family: 'Press Start 2P', cursive;
     font-weight: lighter;
+    font-size: small;
     position: relative;
-    content: '> ';
+    content: 'Введите число > ';
 }
 
 .guess {
@@ -58,7 +59,7 @@ main {
 
   .output {
     margin: 0;
-    padding: 0;
+    padding: 30px;
     list-style: none;
     color: rgb(255, 255, 255);
     font-size: 15px;

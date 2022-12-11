@@ -1,4 +1,4 @@
-import {Menu} from './core/menu'
+import { Menu } from './core/menu'
 import { Welcome } from './mainpage/welcome'
 
 const welcome = new Welcome()
@@ -11,6 +11,7 @@ export class ContextMenu extends Menu {
             this.open(event.clientY, event.clientX)
         })
     }
+
     open (top, left) {
         if (localStorage.getItem('name')) {
         this.el.style.top = `${top}px`

@@ -12,18 +12,18 @@ import { Welcome } from './mainpage/welcome'
 const welcome = new Welcome()
 const contextMenu = new ContextMenu('#menu')
 
-let arrayModules = [];
+let arrayModules = []
 
-const secondModule = new BackgroundModule('changeColor','Изменить цвет');
-const drumModule = new GameDrumModule('GameDrum', 'Поиграть на барабанах');
+const changeColorModule = new BackgroundModule('changeColor','Изменить цвет')
+const drumModule = new GameDrumModule('GameDrum', 'Поиграть на барабанах')
 const reactionModule = new ReactionGame ('reactionGame', 'Игра на реакцию')
-const fourdModule = new ShapeModule ('Shape',  'Случайная фигура')
-const guessNumber = new GuessNumberModule('Guess', 'Игра: Угадай число' )
-const tableResult = new TableResult ('tableResult', 'Посмотреть результаты')
+const randomShapeModule = new ShapeModule ('Shape',  'Случайная фигура')
+const guessNumberModule = new GuessNumberModule('Guess', 'Игра: Угадай число' )
+const tableResultModule = new TableResult ('tableResult', 'Посмотреть лучшие результаты')
 
 welcome.showInput()
 
-arrayModules.push(secondModule, reactionModule, fourdModule, guessNumber, drumModule, tableResult)
+arrayModules.push(changeColorModule, reactionModule, randomShapeModule, guessNumberModule, drumModule, tableResultModule)
 
 arrayModules.forEach (item => contextMenu.add(item))
 
@@ -32,9 +32,9 @@ document.addEventListener('click', (event) => {
 
     switch (target.dataset.type) {
         case 'changeColor':
-            secondModule.trigger()
+            changeColorModule.trigger()
             contextMenu.close()
-        break
+        break;
 
         case 'reactionGame':
             stopPreviousGame()
@@ -46,23 +46,23 @@ document.addEventListener('click', (event) => {
             stopPreviousGame()
             drumModule.trigger()
             contextMenu.close()
-        break
+        break;
 
         case 'Shape': 
             stopPreviousGame()
-            fourdModule.trigger()
+            randomShapeModule.trigger()
             contextMenu.close()
-        break
+        break;
 
         case 'Guess':
             stopPreviousGame()
-            guessNumber.trigger()
+            guessNumberModule.trigger()
             contextMenu.close()
         break;
 
         case 'tableResult':
             stopPreviousGame()
-            tableResult.trigger()
+            tableResultModule.trigger()
             contextMenu.close()
         break;
 }})
