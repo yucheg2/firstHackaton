@@ -15,15 +15,8 @@ export function randomColor() {
 }
 
 export function stopPreviousGame() {
-<<<<<<< HEAD
   const game = document.querySelector('.game')
   if (game) {
     game.remove()  
-=======
-  const container = document.querySelector('.game')
-  if (container) {
-      container.remove()
-      // document.body.style.backgroundColor = 'rgb(255, 255, 255)'
->>>>>>> Yury-game-container
   }
 }
