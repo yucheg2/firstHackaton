@@ -65,20 +65,18 @@ trigger() {
         
         function processInput(input) {
             if (!input) return
-        
-            // if (!name) {
-            //     name = input
-            //     outputMessage(`${name}, тебе необходимо отгадать случайное число от 0 до 100 за наименьшее кол-во попыток. После каждой попытки появится сообщение 'мало', 'много' или 'верно'.` )
-            //     return
-            // }
-        
-            outputMessage(input)
+              
+
         
             let attempt = Number.parseInt(input)
-            if (Number.isNaN(input)) return
-        
+            if (Number.isNaN(attempt)) return
+
+            outputMessage(input)
+
+
             attempts += 1
-        
+
+
             if (attempt > number) {
                 outputMessage('Много. Попробуй еще!')
             } else if (attempt < number) {
