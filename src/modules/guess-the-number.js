@@ -10,7 +10,8 @@ trigger() {
 
 
         function makeHTML() {
-        const main = document.createElement('main')
+        const main = document.createElement('div')
+        main.className = 'game'
         const h1 = document.createElement('h1')
         h1.className = 'guess'
         h1.textContent = 'ИГРА [Угадай число от 1 до 100]'
@@ -91,7 +92,7 @@ a
         
             }
         
-        
+            localStorage.setItem('attempts', attempts)
         
         }
         }
